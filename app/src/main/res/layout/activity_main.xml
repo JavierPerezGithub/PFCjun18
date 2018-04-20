@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.javier.starapiwars.MainActivity">
+
+    <Button
+        android:id="@+id/btnPeople"
+        android:text="@string/btnPeople"
+        android:onClick="acPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnPlanets"
+        android:text="@string/btnPlanets"
+        android:onClick="acPlanets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnPeople"/>
+
+    <Button
+        android:id="@+id/btnStarship"
+        android:text="@string/btnStarShips"
+        android:onClick="acStarship"
+        android:layout_below="@+id/btnPlanets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:clickable="true"
+        android:onClick="acBusqueda"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
+</RelativeLayout>
+
