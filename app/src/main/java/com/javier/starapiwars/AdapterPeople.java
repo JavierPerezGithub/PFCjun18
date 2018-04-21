@@ -61,7 +61,7 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
 
     public static class MiViewHolder extends RecyclerView.ViewHolder {
         private TextView nombre;
-
+//rama
         public TextView getNombre() {
             return nombre;
         }
