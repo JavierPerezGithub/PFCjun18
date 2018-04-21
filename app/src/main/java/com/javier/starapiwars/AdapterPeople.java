@@ -54,6 +54,7 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
     }
 
     @Override
+    //prueba
     public void onClick(View v) {
         if(listener != null)
             listener.onClick(v);
