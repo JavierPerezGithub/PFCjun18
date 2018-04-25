@@ -54,7 +54,6 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
     }
 
     @Override
-    //rama Jesus
     public void onClick(View v) {
         if(listener != null)
             listener.onClick(v);
@@ -62,7 +61,6 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
 
     public static class MiViewHolder extends RecyclerView.ViewHolder {
         private TextView nombre;
-//rama
         public TextView getNombre() {
             return nombre;
         }

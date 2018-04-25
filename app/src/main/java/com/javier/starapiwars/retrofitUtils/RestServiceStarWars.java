@@ -1,6 +1,7 @@
 package com.javier.starapiwars.retrofitUtils;
 
 import com.javier.starapiwars.models.PeopleRespuesta;
+import com.javier.starapiwars.models.Planet;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,6 +16,8 @@ public interface RestServiceStarWars {
 
     @GET("people")
     Call<PeopleRespuesta> obtenerListaPeople(@Query("page")int page);
+    @GET("planet")
+    Call<Planet> obtenerPlaneta();
     /*@GET("planets")
     Call<PlanetsRespuesta> obtenerListaPlanets(@Query("page")int page);
     @GET("starships")

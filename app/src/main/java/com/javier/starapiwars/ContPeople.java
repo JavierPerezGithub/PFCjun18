@@ -1,5 +1,6 @@
 package com.javier.starapiwars;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,11 +44,15 @@ public class ContPeople extends AppCompatActivity {
             adapterPeople.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int valor = rv.indexOfChild(v);
+
                     AdapterPeople.MiViewHolder adapter = (AdapterPeople.MiViewHolder) rv.getChildViewHolder(v);
                     adapter.getNombre();
+                    int valor = rv.getChildAdapterPosition(v)+1;
                     People people = list.get(rv.getChildAdapterPosition(v));
-                    Log.v("Prueba",people.getName());
+                    Intent intent = new Intent(ContPeople.this,PeopleFinalActivity.class);
+                    intent.putExtra("object",people);
+                    intent.putExtra("position",valor);
+                    startActivity(intent);
                 }
             });
             rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -81,7 +86,6 @@ public class ContPeople extends AppCompatActivity {
 
             Retrofit rt = RetrofitClient.getClient(RestServiceStarWars.BASE_URL);
             final RestServiceStarWars service = rt.create(RestServiceStarWars.class);
-            //TODO aqui hay que controlar que se carguen todas los items
             Call<PeopleRespuesta> peopleRespuestaCall = service.obtenerListaPeople(cont);
 
             peopleRespuestaCall.enqueue(new Callback<PeopleRespuesta>() {
