@@ -31,6 +31,7 @@ public class ContPeople extends AppCompatActivity {
     private int cont;
     private boolean aptoParaCargar;
     private String numero;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class ContPeople extends AppCompatActivity {
         if (list == null) {
             list = new ArrayList<>();
             rv = findViewById(R.id.rvPeople);
-            adapterPeople = new AdapterPeople(this,list);
+            adapterPeople = new AdapterPeople(this, list);
             rv.setAdapter(adapterPeople);
             rv.setHasFixedSize(true);
             llm = new LinearLayoutManager(this);
@@ -51,18 +52,29 @@ public class ContPeople extends AppCompatActivity {
 
                     AdapterPeople.MiViewHolder adapter = (AdapterPeople.MiViewHolder) rv.getChildViewHolder(v);
                     adapter.getNombre();
-                    int valor = rv.getChildAdapterPosition(v)+1;
+                    int valor = rv.getChildAdapterPosition(v) + 1;
                     People people = list.get(rv.getChildAdapterPosition(v));
-                   //Parte de recuperar el planeta
-                    String cadena = people.getHomeworld();
+                    //Parte de recuperar el planeta
 
-                    String dato = cadena.substring(29, 31);
-                    if (dato.charAt(1) == '/') {
-                        numero = String.valueOf(dato.charAt(0));
-                    } else {
-                        numero = dato;
+                    String cadena = people.getHomeworld();
+                    Log.v("faltaDato", cadena);
+                    try {
+                        String dato = cadena.substring(29, 31);
+                        if (dato.charAt(1) == '/') {
+                            numero = String.valueOf(dato.charAt(0));
+                        } else {
+                            numero = dato;
+                        }
+                        recuperarPlaneta(valor, people);
+                    } catch (StringIndexOutOfBoundsException e) {
+                        Intent intent = new Intent(ContPeople.this, PeopleFinalActivity.class);
+                        intent.putExtra("object", people);
+                        intent.putExtra("position", valor);
+                        startActivity(intent);
+                        Log.v("saltoExcepcion", cadena);
                     }
-                    recuperarPlaneta(valor,people);
+
+
                 }
             });
             rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -70,17 +82,17 @@ public class ContPeople extends AppCompatActivity {
                 public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                     super.onScrolled(recyclerView, dx, dy);
 
-                    if(dy > 0){
+                    if (dy > 0) {
                         int visibleItemCount = llm.getChildCount();
                         int totalItemCount = llm.getItemCount();
                         int pastVisibleItems = llm.findFirstVisibleItemPosition();
 
-                        if(aptoParaCargar){
-                            if((visibleItemCount + pastVisibleItems) >= totalItemCount){
+                        if (aptoParaCargar) {
+                            if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
                                 Log.i(TAG, "Llegamos al final.");
 
                                 aptoParaCargar = false;
-                                cont +=1;
+                                cont += 1;
                                 cargaDatos(cont);
                             }
                         }
@@ -88,10 +100,11 @@ public class ContPeople extends AppCompatActivity {
                 }
             });
             cont = 1;
-            aptoParaCargar=true;
+            aptoParaCargar = true;
             cargaDatos(cont);
         }
     }
+
     private void recuperarPlaneta(final int valor, final People people) {
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -108,45 +121,47 @@ public class ContPeople extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Planet planeta = response.body();
                     people.setHomeworld(planeta.getName());
-                    Intent intent = new Intent(ContPeople.this,PeopleFinalActivity.class);
-                    intent.putExtra("object",people);
-                    intent.putExtra("position",valor);
+                    Intent intent = new Intent(ContPeople.this, PeopleFinalActivity.class);
+                    intent.putExtra("object", people);
+                    intent.putExtra("position", valor);
                     startActivity(intent);
 
                 } else {
                     Log.e("error", response.errorBody().toString());
                 }
             }
+
             @Override
             public void onFailure(Call<Planet> call, Throwable t) {
                 Log.e("error", t.toString());
             }
         });
     }
-    private void cargaDatos(int cont){
 
-            Retrofit rt = RetrofitClient.getClient(RestServiceStarWars.BASE_URL);
-            final RestServiceStarWars service = rt.create(RestServiceStarWars.class);
-            Call<PeopleRespuesta> peopleRespuestaCall = service.obtenerListaPeople(cont);
+    private void cargaDatos(int cont) {
 
-            peopleRespuestaCall.enqueue(new Callback<PeopleRespuesta>() {
-                @Override
-                public void onResponse(Call<PeopleRespuesta> call, Response<PeopleRespuesta> response) {
-                    aptoParaCargar=true;
-                    if(response.isSuccessful()){
-                        PeopleRespuesta peopleRespuesta = response.body();
-                        ArrayList<People> lista = peopleRespuesta.getResults();
-                        adapterPeople.addListaPeople(lista);
+        Retrofit rt = RetrofitClient.getClient(RestServiceStarWars.BASE_URL);
+        final RestServiceStarWars service = rt.create(RestServiceStarWars.class);
+        Call<PeopleRespuesta> peopleRespuestaCall = service.obtenerListaPeople(cont);
 
-                    }else {
-                        Log.e("error",response.errorBody().toString());
-                    }
+        peopleRespuestaCall.enqueue(new Callback<PeopleRespuesta>() {
+            @Override
+            public void onResponse(Call<PeopleRespuesta> call, Response<PeopleRespuesta> response) {
+                aptoParaCargar = true;
+                if (response.isSuccessful()) {
+                    PeopleRespuesta peopleRespuesta = response.body();
+                    ArrayList<People> lista = peopleRespuesta.getResults();
+                    adapterPeople.addListaPeople(lista);
+
+                } else {
+                    Log.e("error", response.errorBody().toString());
                 }
+            }
 
-                @Override
-                public void onFailure(Call<PeopleRespuesta> call, Throwable t) {
-                    Log.e("error", t.toString());
-                }
-            });
-        }
+            @Override
+            public void onFailure(Call<PeopleRespuesta> call, Throwable t) {
+                Log.e("error", t.toString());
+            }
+        });
+    }
 }
