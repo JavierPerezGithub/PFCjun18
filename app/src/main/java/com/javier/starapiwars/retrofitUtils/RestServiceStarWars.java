@@ -5,6 +5,7 @@ import com.javier.starapiwars.models.Planet;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -16,11 +17,27 @@ public interface RestServiceStarWars {
 
     @GET("people")
     Call<PeopleRespuesta> obtenerListaPeople(@Query("page")int page);
-    @GET("planet")
-    Call<Planet> obtenerPlaneta();
-    /*@GET("planets")
+
+    @GET("planets/{id}")
+    Call<Planet> obtenerPlaneta(@Path("id") String numero);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*@GET("planets")
     Call<PlanetsRespuesta> obtenerListaPlanets(@Query("page")int page);
     @GET("starships")
     Call<StarShipsRespuesta> obtenerListaStarships(@Query("page")int page);*/
-
-}
