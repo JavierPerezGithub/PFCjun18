@@ -13,7 +13,7 @@ import retrofit2.http.Query;
  */
 
 public interface RestServiceStarWars {
-    public static final String BASE_URL = "https://swapi.co/api/";
+    static final String BASE_URL = "https://swapi.co/api/";
 
     @GET("people")
     Call<PeopleRespuesta> obtenerListaPeople(@Query("page")int page);
@@ -21,6 +21,10 @@ public interface RestServiceStarWars {
     @GET("planets/{id}")
     Call<Planet> obtenerPlaneta(@Path("id") String numero);
 
+    /*@GET("planets")
+    Call<PlanetsRespuesta> obtenerListaPlanets(@Query("page")int page);
+    @GET("starships")
+    Call<StarShipsRespuesta> obtenerListaStarships(@Query("page")int page);*/
 
 }
 
@@ -37,7 +41,3 @@ public interface RestServiceStarWars {
 
 
 
-/*@GET("planets")
-    Call<PlanetsRespuesta> obtenerListaPlanets(@Query("page")int page);
-    @GET("starships")
-    Call<StarShipsRespuesta> obtenerListaStarships(@Query("page")int page);*/

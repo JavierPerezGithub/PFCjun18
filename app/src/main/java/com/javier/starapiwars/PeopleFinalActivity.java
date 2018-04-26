@@ -23,7 +23,6 @@ public class PeopleFinalActivity extends AppCompatActivity {
     private TextView tvNombre, tvAltura, tvPeso, tvColorPelo, tvColorOjos, tvColorPiel, tvPlanetaOrigen;
     private People people;
     private int posicion;
-    private String numero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,51 +40,15 @@ public class PeopleFinalActivity extends AppCompatActivity {
         people = (People) getIntent().getSerializableExtra("object");
         posicion = getIntent().getIntExtra("position", 0);
 
-        String cadena = people.getHomeworld();
-        String valor = cadena.substring(29, 31);
-        if (valor.charAt(1) == '/') {
-            numero = String.valueOf(valor.charAt(0));
-        } else {
-            numero = valor;
-        }
-
         tvNombre.setText(people.getName());
         tvAltura.setText(people.getHeight());
         tvPeso.setText(people.getMass());
         tvColorPelo.setText(people.getHairColor());
         tvColorOjos.setText(people.getEyeColor());
         tvColorPiel.setText(people.getSkinColor());
+        tvPlanetaOrigen.setText(people.getHomeworld());
         FotosPeople fotosPeople = new FotosPeople();
         Drawable drawable = getResources().getDrawable(fotosPeople.getFoto(posicion));
         imageView.setImageDrawable(drawable);
-        recuperarPlaneta();
-    }
-
-    private void recuperarPlaneta() {
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(RestServiceStarWars.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        final RestServiceStarWars service = retrofit.create(RestServiceStarWars.class);
-        Call<Planet> peopleRespuestaCall = service.obtenerPlaneta(numero);
-
-        peopleRespuestaCall.enqueue(new Callback<Planet>() {
-            @Override
-            public void onResponse(Call<Planet> call, Response<Planet> response) {
-
-                if (response.isSuccessful()) {
-                    Planet planeta = response.body();
-                    tvPlanetaOrigen.setText(planeta.getName());
-
-                } else {
-                    Log.e("error", response.errorBody().toString());
-                }
-            }
-            @Override
-            public void onFailure(Call<Planet> call, Throwable t) {
-                Log.e("error", t.toString());
-            }
-        });
     }
 }

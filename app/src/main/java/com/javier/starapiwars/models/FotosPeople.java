@@ -16,12 +16,7 @@ public class FotosPeople {
         switch (posicion){
             case 1: icono = R.drawable.luke;
                 break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
+            default: icono = R.drawable.ic_launcher_background;
         }
 
         return icono;

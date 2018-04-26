@@ -14,52 +14,52 @@ public class People implements Serializable{
 
     @SerializedName("name")
     @Expose
-    public String name;
+    private String name;
     @SerializedName("height")
     @Expose
-    public String height;
+    private String height;
     @SerializedName("mass")
     @Expose
-    public String mass;
+    private String mass;
     @SerializedName("hair_color")
     @Expose
-    public String hairColor;
+    private String hairColor;
     @SerializedName("skin_color")
     @Expose
-    public String skinColor;
+    private String skinColor;
     @SerializedName("eye_color")
     @Expose
-    public String eyeColor;
+    private String eyeColor;
     @SerializedName("birth_year")
     @Expose
-    public String birthYear;
+    private String birthYear;
     @SerializedName("gender")
     @Expose
-    public String gender;
+    private String gender;
     @SerializedName("homeworld")
     @Expose
-    public String homeworld;
+    private String homeworld;
     @SerializedName("films")
     @Expose
-    public List<String> films = null;
+    private List<String> films = null;
     @SerializedName("species")
     @Expose
-    public List<String> species = null;
+    private List<String> species = null;
     @SerializedName("vehicles")
     @Expose
-    public List<String> vehicles = null;
+    private List<String> vehicles = null;
     @SerializedName("starships")
     @Expose
-    public List<String> starships = null;
+    private List<String> starships = null;
     @SerializedName("created")
     @Expose
-    public String created;
+    private String created;
     @SerializedName("edited")
     @Expose
-    public String edited;
+    private String edited;
     @SerializedName("url")
     @Expose
-    public String url;
+    private String url;
 
     public String getName() {
         return name;
@@ -123,5 +123,9 @@ public class People implements Serializable{
 
     public String getUrl() {
         return url;
+    }
+
+    public void setHomeworld(String homeworld) {
+        this.homeworld = homeworld;
     }
 }
