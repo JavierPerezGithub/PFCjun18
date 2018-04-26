@@ -57,7 +57,6 @@ public class ContPeople extends AppCompatActivity {
                     //Parte de recuperar el planeta
 
                     String cadena = people.getHomeworld();
-                    Log.v("faltaDato", cadena);
                     try {
                         String dato = cadena.substring(29, 31);
                         if (dato.charAt(1) == '/') {
@@ -71,7 +70,6 @@ public class ContPeople extends AppCompatActivity {
                         intent.putExtra("object", people);
                         intent.putExtra("position", valor);
                         startActivity(intent);
-                        Log.v("saltoExcepcion", cadena);
                     }
 
 
