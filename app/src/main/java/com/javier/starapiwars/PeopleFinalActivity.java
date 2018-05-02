@@ -3,26 +3,18 @@ package com.javier.starapiwars;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.javier.starapiwars.models.FotosPeople;
+import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.javier.starapiwars.models.People;
-import com.javier.starapiwars.models.Planet;
-import com.javier.starapiwars.retrofitUtils.RestServiceStarWars;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PeopleFinalActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView tvNombre, tvAltura, tvPeso, tvColorPelo, tvColorOjos, tvColorPiel, tvPlanetaOrigen;
     private People people;
-    private int posicion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +30,6 @@ public class PeopleFinalActivity extends AppCompatActivity {
         tvPlanetaOrigen = findViewById(R.id.tvPlanetaPeopleFinal);
 
         people = (People) getIntent().getSerializableExtra("object");
-        posicion = getIntent().getIntExtra("position", 0);
 
         tvNombre.setText(people.getName());
         tvAltura.setText(people.getHeight());
@@ -47,8 +38,12 @@ public class PeopleFinalActivity extends AppCompatActivity {
         tvColorOjos.setText(people.getEyeColor());
         tvColorPiel.setText(people.getSkinColor());
         tvPlanetaOrigen.setText(people.getHomeworld());
-        FotosPeople fotosPeople = new FotosPeople();
-        Drawable drawable = getResources().getDrawable(fotosPeople.getFoto(posicion));
-        imageView.setImageDrawable(drawable);
+
+        // Create a storage reference from our app
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+        Glide.with(imageView.getContext())
+                .load(people.getImgDir())
+                .into(imageView);
     }
 }
