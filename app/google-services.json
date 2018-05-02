@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "885134849850",
+    "firebase_url": "https://starapiwars.firebaseio.com",
+    "project_id": "starapiwars",
+    "storage_bucket": "starapiwars.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885134849850:android:b04e294df21566c6",
+        "android_client_info": {
+          "package_name": "com.javier.starapiwars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885134849850-fn7nkeks79vff96codd314rf1bi957na.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.javier.starapiwars",
+            "certificate_hash": "9c0642f3a045301729f6012606f232485bf3741e"
+          }
+        },
+        {
+          "client_id": "885134849850-q78nqrtb9m0vv6gvut0j61sng3qg1icq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD84p_jTIn3Baw4c4OAvacXAw4ms0QJW6s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885134849850-q78nqrtb9m0vv6gvut0j61sng3qg1icq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
