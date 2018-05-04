@@ -13,5 +13,32 @@
         android:layout_width="match_parent"
         android:layout_height="376dp">
     </android.support.v7.widget.RecyclerView>
+    <Spinner
+        android:id="@+id/spFiltro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+    </Spinner>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/etBusqueda"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/b_squeda"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btnBusqueda"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.javier.starapiwars;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -38,11 +39,17 @@ public class PeopleFinalActivity extends AppCompatActivity {
         tvColorPiel.setText(people.getSkinColor());
         tvPlanetaOrigen.setText(people.getHomeworld());
 
-        // Create a storage reference from our app
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
         Glide.with(imageView.getContext())
                 .load(people.getImgDir())
                 .into(imageView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PeopleFinalActivity.this, ContPeople.class);
+        startActivity(intent);
+        finish();
     }
 }
