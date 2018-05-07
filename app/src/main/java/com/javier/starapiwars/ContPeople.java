@@ -1,5 +1,6 @@
 package com.javier.starapiwars;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -55,6 +56,7 @@ public class ContPeople extends AppCompatActivity {
                 }
                 adapterPeople.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
@@ -63,23 +65,19 @@ public class ContPeople extends AppCompatActivity {
         btnBusqueda = findViewById(R.id.btnBusqueda);
         etBusqueda = findViewById(R.id.etBusqueda);
         spinner = findViewById(R.id.spFiltro);
-        String [] contenido = {"Name","Gender","Homeworld"};
-        spinner.setAdapter(new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,contenido));
+        String[] contenido = {"Name", "Homeworld"};
+        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, contenido));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0:
                         opcion = 0;
                         break;
 
                     case 1:
                         opcion = 1;
-                        break;
-
-                    case 2:
-                        opcion = 2;
                         break;
                 }
             }
@@ -92,26 +90,39 @@ public class ContPeople extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(etBusqueda.getText().toString().length()!=0){
+                if (etBusqueda.getText().toString().length() != 0) {
                     String dato = etBusqueda.getText().toString().trim();
-                    if (busqueda == null){
+                    if (busqueda == null) {
                         busqueda = new ArrayList<>();
                     }
-                    if(busqueda.size()!=0 || busqueda !=null){
+                    if (busqueda.size() != 0 || busqueda != null) {
                         busqueda.removeAll(busqueda);
                     }
 
-                    switch (opcion){
+                    switch (opcion) {
+
                         case 0:
-                            for(int i = 0;i<list.size();i++){
-                                if (list.get(i).getName().equalsIgnoreCase(dato)){
-                                    busqueda.add(list.get(i));
+                            String nombre = "";
+                            String sSubCadena = "";
+                            int tamDato = dato.length();
+
+                            for (int i = 0; i < list.size(); i++) {
+
+                                nombre = list.get(i).getName();
+                                try {
+                                    sSubCadena = nombre.substring(0, tamDato);
+                                    if (sSubCadena.equalsIgnoreCase(dato)) {
+                                        busqueda.add(list.get(i));
+                                    }
+                                } catch (StringIndexOutOfBoundsException e) {
+
                                 }
+
                             }
-                            if(busqueda.size()==0){
-                                Toast.makeText(ContPeople.this,"Name not found", Toast.LENGTH_LONG).show();
-                            }else {
-                                adapterPeople = new AdapterPeople(ContPeople.this,busqueda);
+                            if (busqueda.size() == 0) {
+                                Toast.makeText(ContPeople.this, "Name not found", Toast.LENGTH_LONG).show();
+                            } else {
+                                adapterPeople = new AdapterPeople(ContPeople.this, busqueda);
                                 rv.setAdapter(adapterPeople);
                                 adaptador(busqueda);
                             }
@@ -119,6 +130,7 @@ public class ContPeople extends AppCompatActivity {
 
                         case 1:
                             opcion = 1;
+
                             break;
 
                         case 2:
@@ -139,7 +151,7 @@ public class ContPeople extends AppCompatActivity {
         adaptador(list);
     }
 
-    private void adaptador(final ArrayList<People>list) {
+    private void adaptador(final ArrayList<People> list) {
         adapterPeople.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,25 +168,30 @@ public class ContPeople extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.item_menu,menu);
+        getMenuInflater().inflate(R.menu.item_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_search){
+        if (item.getItemId() == R.id.action_search) {
             spinner.setVisibility(View.VISIBLE);
             etBusqueda.setVisibility(View.VISIBLE);
             btnBusqueda.setVisibility(View.VISIBLE);
 
 
-        }else if(item.getItemId() == R.id.action_exit){
+        } else if (item.getItemId() == R.id.action_exit) {
             crearDialogo().show();
         }
-        return(true);
+        return (true);
     }
 
-    private Dialog crearDialogo(){
+    @SuppressLint("NewApi")
+    public void Salida() {
+        finishAffinity();
+    }
+
+    private Dialog crearDialogo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ContPeople.this);
         builder.setCancelable(false);
         builder.setMessage("EXIT?");
@@ -182,7 +199,7 @@ public class ContPeople extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
+                Salida();
             }
         });
 
@@ -194,6 +211,7 @@ public class ContPeople extends AppCompatActivity {
         });
         return builder.create();
     }
+
     @Override
     public void onBackPressed() {
         finish();
