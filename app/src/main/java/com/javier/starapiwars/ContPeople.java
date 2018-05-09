@@ -102,16 +102,16 @@ public class ContPeople extends AppCompatActivity {
                     switch (opcion) {
 
                         case 0:
-                            String nombre = "";
-                            String sSubCadena = "";
+                            String name = "";
+                            String sSubPeople = "";
                             int tamDato = dato.length();
-
+                            busqueda.removeAll(busqueda);
                             for (int i = 0; i < list.size(); i++) {
 
-                                nombre = list.get(i).getName();
+                                name = list.get(i).getName();
                                 try {
-                                    sSubCadena = nombre.substring(0, tamDato);
-                                    if (sSubCadena.equalsIgnoreCase(dato)) {
+                                    sSubPeople = name.substring(0, tamDato);
+                                    if (sSubPeople.equalsIgnoreCase(dato)) {
                                         busqueda.add(list.get(i));
                                     }
                                 } catch (StringIndexOutOfBoundsException e) {
@@ -129,12 +129,30 @@ public class ContPeople extends AppCompatActivity {
                             break;
 
                         case 1:
-                            opcion = 1;
+                            String planet = "";
+                            String sSubPlanet = "";
+                            int tDato = dato.length();
+                            busqueda.removeAll(busqueda);
+                            for (int i = 0; i < list.size(); i++) {
 
-                            break;
+                                planet = list.get(i).getHomeworld();
+                                try {
+                                    sSubPlanet = planet.substring(0, tDato);
+                                    if (sSubPlanet.equalsIgnoreCase(dato)) {
+                                        busqueda.add(list.get(i));
+                                    }
+                                } catch (StringIndexOutOfBoundsException e) {
 
-                        case 2:
-                            opcion = 2;
+                                }
+
+                            }
+                            if (busqueda.size() == 0) {
+                                Toast.makeText(ContPeople.this, "Planet not found", Toast.LENGTH_LONG).show();
+                            } else {
+                                adapterPeople = new AdapterPeople(ContPeople.this, busqueda);
+                                rv.setAdapter(adapterPeople);
+                                adaptador(busqueda);
+                            }
                             break;
                     }
                 }
@@ -194,7 +212,7 @@ public class ContPeople extends AppCompatActivity {
     private Dialog crearDialogo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ContPeople.this);
         builder.setCancelable(false);
-        builder.setMessage("EXIT?");
+        builder.setMessage("DO YOU WANT TO EXIT?");
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

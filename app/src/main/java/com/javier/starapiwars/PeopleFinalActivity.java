@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.javier.starapiwars.models.People;
@@ -40,9 +41,12 @@ public class PeopleFinalActivity extends AppCompatActivity {
         tvPlanetaOrigen.setText(people.getHomeworld());
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference();
+        String ref = "fotoPeople/%1s";
+        String res = String.format(ref,people.getImgDir());
+        StorageReference storageRef = storage.getReference().child(res);
         Glide.with(imageView.getContext())
-                .load(people.getImgDir())
+                .using(new FirebaseImageLoader())
+                .load(storageRef)
                 .into(imageView);
     }
 
