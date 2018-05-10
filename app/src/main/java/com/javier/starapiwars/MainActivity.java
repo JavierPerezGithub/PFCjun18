@@ -26,4 +26,9 @@ public class MainActivity extends AppCompatActivity {
     /*public void acStarships(View view) {
         startActivity(new Intent(this,StarshipActivity.class));
     }*/
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

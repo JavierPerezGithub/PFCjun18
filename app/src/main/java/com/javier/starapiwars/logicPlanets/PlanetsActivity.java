@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.javier.starapiwars.MainActivity;
 import com.javier.starapiwars.R;
 
 public class PlanetsActivity extends AppCompatActivity {
@@ -16,5 +17,11 @@ public class PlanetsActivity extends AppCompatActivity {
     }
     public void contPlanet(View view) {
         startActivity(new Intent(this,ContPlanet.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PlanetsActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }

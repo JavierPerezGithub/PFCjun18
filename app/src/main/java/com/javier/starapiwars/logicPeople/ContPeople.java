@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.javier.starapiwars.MainActivity;
 import com.javier.starapiwars.Objects.FirebaseReferences;
 import com.javier.starapiwars.R;
 import com.javier.starapiwars.models.People;
@@ -235,7 +236,7 @@ public class ContPeople extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+       startActivity(new Intent (ContPeople.this,MainActivity.class));
     }
 
 }

@@ -99,6 +99,5 @@ public class PeopleFinalActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(PeopleFinalActivity.this, ContPeople.class);
         startActivity(intent);
-        finish();
     }
 }
