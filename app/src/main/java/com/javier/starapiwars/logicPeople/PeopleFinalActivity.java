@@ -1,8 +1,14 @@
-package com.javier.starapiwars;
+package com.javier.starapiwars.logicPeople;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.javier.starapiwars.R;
 import com.javier.starapiwars.models.People;
 
 public class PeopleFinalActivity extends AppCompatActivity {
@@ -49,7 +56,45 @@ public class PeopleFinalActivity extends AppCompatActivity {
                 .load(storageRef)
                 .into(imageView);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.item_menu_generic, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_exit) {
+            crearDialogo().show();
+        }
+        return (true);
+    }
+
+    @SuppressLint("NewApi")
+    public void Salida() {
+        finishAffinity();
+    }
+
+    private Dialog crearDialogo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(PeopleFinalActivity.this);
+        builder.setCancelable(false);
+        builder.setMessage("DO YOU WANT TO EXIT?");
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Salida();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        return builder.create();
+    }
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(PeopleFinalActivity.this, ContPeople.class);

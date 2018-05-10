@@ -1,9 +1,11 @@
-package com.javier.starapiwars;
+package com.javier.starapiwars.logicPeople;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.javier.starapiwars.R;
 
 public class PeopleActivity extends AppCompatActivity {
 

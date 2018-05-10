@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical"
-    tools:context="com.javier.starapiwars.logicPeople.ContPeople">
+    tools:context=".logicPlanets.ContPlanet">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvPeople"
+        android:id="@+id/rvPlanet"
         android:layout_width="match_parent"
         android:layout_height="359dp">
     </android.support.v7.widget.RecyclerView>
     <Spinner
-        android:id="@+id/spFiltroP"
+        android:id="@+id/spFiltroPl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone">
@@ -25,14 +25,14 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/etBusquedaP"
+            android:id="@+id/etBusquedaPl"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:hint="@string/b_squeda"
             android:visibility="gone"/>
 
         <Button
-            android:id="@+id/btnBusquedaP"
+            android:id="@+id/btnBusquedaPl"
             android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

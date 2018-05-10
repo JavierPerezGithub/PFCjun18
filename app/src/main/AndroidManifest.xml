@@ -19,9 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".PeopleActivity" />
-        <activity android:name=".ContPeople" />
-        <activity android:name=".PeopleFinalActivity"></activity>
+        <activity android:name=".logicPeople.PeopleActivity" />
+        <activity android:name=".logicPeople.ContPeople" />
+        <activity android:name=".logicPeople.PeopleFinalActivity" />
+        <activity android:name=".logicPlanets.PlanetsActivity" />
+        <activity android:name=".logicPlanets.ContPlanet" />
+        <activity android:name=".logicPlanets.PlanetFinalActivity"></activity>
     </application>
 
 </manifest>

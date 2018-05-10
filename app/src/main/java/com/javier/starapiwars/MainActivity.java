@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.javier.starapiwars.logicPeople.PeopleActivity;
+import com.javier.starapiwars.logicPlanets.PlanetsActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,15 +19,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,PeopleActivity.class));
     }
 
-    /*public void acStarship(View view) {
+    public void acPlanets(View view) {
         startActivity(new Intent(this,PlanetsActivity.class));
     }
 
-    public void acPlanets(View view) {
-        startActivity(new Intent(this,StarshipActivity.class));
-    }
-
-    public void acBusqueda(View view) {
+    /*public void acStarships(View view) {
         startActivity(new Intent(this,StarshipActivity.class));
     }*/
 }

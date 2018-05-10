@@ -1,4 +1,4 @@
-package com.javier.starapiwars;
+package com.javier.starapiwars.logicPeople;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.javier.starapiwars.Objects.FirebaseReferences;
+import com.javier.starapiwars.R;
 import com.javier.starapiwars.models.People;
 
 import java.util.ArrayList;
@@ -62,9 +63,9 @@ public class ContPeople extends AppCompatActivity {
             }
         });
         opcion = 0;
-        btnBusqueda = findViewById(R.id.btnBusqueda);
-        etBusqueda = findViewById(R.id.etBusqueda);
-        spinner = findViewById(R.id.spFiltro);
+        btnBusqueda = findViewById(R.id.btnBusquedaP);
+        etBusqueda = findViewById(R.id.etBusquedaP);
+        spinner = findViewById(R.id.spFiltroP);
         String[] contenido = {"Name", "Homeworld"};
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, contenido));
 
@@ -106,8 +107,8 @@ public class ContPeople extends AppCompatActivity {
                             String sSubPeople = "";
                             int tamDato = dato.length();
                             busqueda.removeAll(busqueda);
-                            for (int i = 0; i < list.size(); i++) {
 
+                            for (int i = 0; i < list.size(); i++) {
                                 name = list.get(i).getName();
                                 try {
                                     sSubPeople = name.substring(0, tamDato);
@@ -155,6 +156,8 @@ public class ContPeople extends AppCompatActivity {
                             }
                             break;
                     }
+                }else{
+                    Toast.makeText(ContPeople.this,"the field cannot be left empty",Toast.LENGTH_SHORT).show();
                 }
             }
         });
