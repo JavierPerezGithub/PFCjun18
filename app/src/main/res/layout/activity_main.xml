@@ -25,7 +25,7 @@
     <Button
         android:id="@+id/btnStarship"
         android:text="@string/btnStarShips"
-        android:onClick="acStarship"
+        android:onClick="acStarships"
         android:layout_below="@+id/btnPlanets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.javier.starapiwars.logicPeople.PeopleActivity;
 import com.javier.starapiwars.logicPlanets.PlanetsActivity;
+import com.javier.starapiwars.logicStarShips.StarshipActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,PlanetsActivity.class));
     }
 
-    /*public void acStarships(View view) {
+    public void acStarships(View view) {
         startActivity(new Intent(this,StarshipActivity.class));
-    }*/
+    }
 
     @Override
     public void onBackPressed() {

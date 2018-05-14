@@ -25,12 +25,4 @@
         android:layout_gravity="center"
         android:onClick="contPeople"
         android:text="ir al contenido"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:clickable="true"
-        app:backgroundTint="@android:color/holo_blue_dark"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
 </LinearLayout>

@@ -22,6 +22,7 @@ import com.javier.starapiwars.models.People;
 public class PeopleFinalActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView tvNombre, tvAltura, tvPeso, tvColorPelo, tvColorOjos, tvColorPiel, tvPlanetaOrigen;
+    private TextView tvYear,tvGender;
     private People people;
 
     @Override
@@ -36,6 +37,8 @@ public class PeopleFinalActivity extends AppCompatActivity {
         tvColorOjos = findViewById(R.id.tvColorOjosPeopleFinal);
         tvColorPiel = findViewById(R.id.tvColorPielPeopleFinal);
         tvPlanetaOrigen = findViewById(R.id.tvPlanetaPeopleFinal);
+        tvYear = findViewById(R.id.tvYearPeopleFinal);
+        tvGender = findViewById(R.id.tvGenderPeopleFinal);
 
         people = (People) getIntent().getSerializableExtra("object");
 
@@ -46,6 +49,8 @@ public class PeopleFinalActivity extends AppCompatActivity {
         tvColorOjos.setText(people.getEyeColor());
         tvColorPiel.setText(people.getSkinColor());
         tvPlanetaOrigen.setText(people.getHomeworld());
+        tvGender.setText(people.getGender());
+        tvYear.setText(people.getBirthYear());
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
         String ref = "fotoPeople/%1s";
