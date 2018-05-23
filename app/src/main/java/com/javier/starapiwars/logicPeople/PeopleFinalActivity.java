@@ -28,6 +28,7 @@ public class PeopleFinalActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_people_final);
         imageView = findViewById(R.id.ivPeopleFinal);
         tvNombre = findViewById(R.id.tvNombrePeopleFinal);

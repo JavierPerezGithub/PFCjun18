@@ -2,33 +2,58 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundhome"
+    android:orientation="vertical"
     tools:context="com.javier.starapiwars.MainActivity">
 
     <Button
         android:id="@+id/btnPeople"
-        android:text="@string/btnPeople"
-        android:onClick="acPeople"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="103dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="184dp"
+        android:background="@drawable/botonpeople"
+        android:onClick="acPeople" />
 
     <Button
         android:id="@+id/btnPlanets"
-        android:text="@string/btnPlanets"
-        android:onClick="acPlanets"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnPeople"/>
+        android:layout_height="72dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/btnPeople"
+        android:background="@drawable/botonplanetas"
+        android:onClick="acPlanets" />
 
     <Button
         android:id="@+id/btnStarship"
-        android:text="@string/btnStarShips"
-        android:onClick="acStarships"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/btnPlanets"
+        android:layout_marginStart="0dp"
+        android:background="@drawable/botonnaves"
+        android:onClick="acStarships" />
+
+    <ImageView
+        android:id="@+id/tituloHome"
+        android:layout_width="303dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        app:srcCompat="@drawable/titulohome" />
+
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tituloHome"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-77dp"
+        app:srcCompat="@drawable/apihome" />
 
 </RelativeLayout>
 

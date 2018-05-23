@@ -2,11 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_search"
-        android:title="@string/action_search"
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/botonbuscar"
         android:orderInCategory="1"
-        app:showAsAction="always"
-        android:icon="@mipmap/ic_launcher"/>
+        android:title="@string/action_search"
+        app:showAsAction="always" />
 
     <item android:id="@+id/action_exit"
         android:title="@string/action_exit"

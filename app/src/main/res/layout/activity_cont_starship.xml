@@ -1,42 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="20dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".logicStarShips.ContStarship"
-    android:orientation="vertical">
+    android:background="@drawable/backgroundsplash"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".logicStarShips.ContStarship">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvStarship"
-        android:layout_width="match_parent"
-        android:layout_height="359dp">
-    </android.support.v7.widget.RecyclerView>
-    <Spinner
-        android:id="@+id/spFiltroSt"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone">
-
-    </Spinner>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/etBusquedaSt"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
+            android:background="#ffee00"
             android:hint="@string/b_squeda"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btnBusquedaSt"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:visibility="gone"/>
+            android:background="@drawable/botonbuscar"
+            android:visibility="gone" />
     </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spFiltroSt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffee00"
+        android:visibility="gone">
+        //android:Tint="@color/red"
+
+    </Spinner>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvStarship"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundsplash"></android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

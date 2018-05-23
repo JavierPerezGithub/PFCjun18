@@ -14,6 +14,6 @@
     <string name="btnStarShips">StarShips</string>
     <string name="ejemplo">La argumentación no suele darse en estado puro y suele combinarse con la exposición. Mientras la exposición se limita a mostrar, la argumentación intenta demostrar, convencer o cambiar ideas. Por ello, en un texto argumentativo, además de la función apelativa presente en el desarrollo de los argumentos, aparece la función referencial, en la parte en la que se expone la tesis. Un texto argumentativo escrito presenta los argumentos (a favor y en contra) con relación a una situación que se ve como problemática. Si es escrito para un ámbito académico como la universidad debe ser coherente, cohesivo y lógico. La argumentación se utiliza en una amplia variedad de textos, especialmente en los científicos, filosóficos, en el ensayo literario, en la oratoria política.</string>
     <string name="action_exit">exit</string>
-    <string name="b_squeda">Búsqueda</string>
+    <string name="b_squeda">Search</string>
 </resources>
 
