@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="285dp"
         android:layout_marginTop="10dp"
-        android:text="@string/ejemplo" />
+        android:text="@string/ejemplo"
+        android:textColor="#ffee00" />
 
     <Button
         android:layout_width="wrap_content"
