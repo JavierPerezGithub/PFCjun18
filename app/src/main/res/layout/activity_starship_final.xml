@@ -8,14 +8,20 @@
     android:orientation="vertical"
     tools:context=".logicStarShips.StarshipFinalActivity">
 
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/ivStarshipFinal"
         android:layout_marginTop="20dp"
         android:layout_width="240dp"
         android:layout_height="202dp"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher"
+        android:layout_centerHorizontal="true"
+        app:civ_border_color="#EEE"
+        app:civ_border_width="0dp"
+        app:civ_shadow="false"
+        app:civ_shadow_radius="10"
+        app:civ_shadow_color="#999"/>
 
     <TextView
         android:id="@+id/tvNameStFinal"
