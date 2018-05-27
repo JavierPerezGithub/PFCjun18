@@ -32,7 +32,6 @@ public class AdapterPlanet extends RecyclerView.Adapter<AdapterPlanet.MiViewHold
         return vh;
     }
 
-
     @Override
     public void onBindViewHolder(MiViewHolder holder, int position) {
 

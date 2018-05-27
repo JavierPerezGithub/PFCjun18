@@ -167,11 +167,15 @@ public class ContStarship extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_search) {
-            spinner.setVisibility(View.VISIBLE);
-            etBusqueda.setVisibility(View.VISIBLE);
-            btnBusqueda.setVisibility(View.VISIBLE);
-
-
+            if (spinner.getVisibility() == View.GONE) {
+                spinner.setVisibility(View.VISIBLE);
+                etBusqueda.setVisibility(View.VISIBLE);
+                btnBusqueda.setVisibility(View.VISIBLE);
+            } else{
+                spinner.setVisibility(View.GONE);
+                etBusqueda.setVisibility(View.GONE);
+                btnBusqueda.setVisibility(View.GONE);
+            }
         } else if (item.getItemId() == R.id.action_exit) {
             crearDialogo().show();
         }
@@ -179,7 +183,7 @@ public class ContStarship extends AppCompatActivity {
     }
 
     @SuppressLint("NewApi")
-    public void Salida() {
+    public void salida() {
         finishAffinity();
     }
 
@@ -191,7 +195,7 @@ public class ContStarship extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Salida();
+                salida();
             }
         });
 

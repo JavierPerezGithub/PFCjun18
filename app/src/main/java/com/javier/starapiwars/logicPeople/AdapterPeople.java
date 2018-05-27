@@ -26,10 +26,6 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
         this.context = context;
         datos = list;
     }
-    public void addListaPeople(ArrayList<People> miLista) {
-        datos.addAll(miLista);
-        notifyDataSetChanged();
-    }
 
     @Override
     public MiViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,7 +36,6 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
         MiViewHolder vh = new MiViewHolder(v);
         return vh;
     }
-
 
     @Override
     public void onBindViewHolder(MiViewHolder holder, int position) {

@@ -157,8 +157,8 @@ public class ContPeople extends AppCompatActivity {
                             }
                             break;
                     }
-                }else{
-                    Toast.makeText(ContPeople.this,"the field cannot be left empty",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ContPeople.this, "the field cannot be left empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -197,11 +197,15 @@ public class ContPeople extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_search) {
-            spinner.setVisibility(View.VISIBLE);
-            etBusqueda.setVisibility(View.VISIBLE);
-            btnBusqueda.setVisibility(View.VISIBLE);
-
-
+            if (spinner.getVisibility() == View.GONE) {
+                spinner.setVisibility(View.VISIBLE);
+                etBusqueda.setVisibility(View.VISIBLE);
+                btnBusqueda.setVisibility(View.VISIBLE);
+            } else{
+                spinner.setVisibility(View.GONE);
+                etBusqueda.setVisibility(View.GONE);
+                btnBusqueda.setVisibility(View.GONE);
+            }
         } else if (item.getItemId() == R.id.action_exit) {
             crearDialogo().show();
         }
@@ -209,7 +213,7 @@ public class ContPeople extends AppCompatActivity {
     }
 
     @SuppressLint("NewApi")
-    public void Salida() {
+    public void salida() {
         finishAffinity();
     }
 
@@ -221,7 +225,7 @@ public class ContPeople extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Salida();
+                salida();
             }
         });
 
@@ -236,7 +240,6 @@ public class ContPeople extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-       startActivity(new Intent (ContPeople.this,MainActivity.class));
+        startActivity(new Intent(ContPeople.this, MainActivity.class));
     }
-
 }

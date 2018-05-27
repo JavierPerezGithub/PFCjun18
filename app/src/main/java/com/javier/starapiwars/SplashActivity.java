@@ -8,13 +8,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
-    private ImageView emuerte,nave,nave2,navedarth,fondo,thesplash,apisplash;
+    private ImageView emuerte,nave,nave2,navedarth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        fondo = findViewById(R.id.fondo);
         emuerte = findViewById(R.id.emuerte);
         nave = findViewById(R.id.nave);
         nave2 = findViewById(R.id.nave2);
@@ -25,14 +24,11 @@ public class SplashActivity extends AppCompatActivity {
         Animation decre1 = AnimationUtils.loadAnimation(this,R.anim.nave);
         Animation decre2 = AnimationUtils.loadAnimation(this,R.anim.nave2);
         Animation decre3 = AnimationUtils.loadAnimation(this,R.anim.navedarth);
-        Animation decre4 = AnimationUtils.loadAnimation(this,R.anim.fondo);
 
         emuerte.setAnimation(decre);
         nave.setAnimation(decre1);
         nave2.setAnimation(decre2);
         navedarth.setAnimation(decre3);
-        fondo.setAnimation(decre4);
-
 
         Thread tiempo = new Thread(){
             @Override
@@ -55,6 +51,4 @@ public class SplashActivity extends AppCompatActivity {
         super.onPause();
         finish();
     }
-
-
 }

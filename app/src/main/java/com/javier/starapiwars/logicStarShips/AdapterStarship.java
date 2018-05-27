@@ -32,7 +32,6 @@ public class AdapterStarship extends RecyclerView.Adapter<AdapterStarship.MiView
         return vh;
     }
 
-
     @Override
     public void onBindViewHolder(MiViewHolder holder, int position) {
 

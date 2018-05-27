@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/tvItemNomPeople"
-        android:layout_width="425dp"
-        android:layout_height="76dp"
-        android:background="@drawable/goitem"
+        android:layout_width="289dp"
+        android:layout_height="wrap_content"
         android:textColor="#ffee00"
         android:textSize="30sp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/goitem" />
 
 </LinearLayout>
