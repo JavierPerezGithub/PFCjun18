@@ -9,10 +9,10 @@
         android:title="@string/action_search"
         app:showAsAction="always" />
 
-    <item android:id="@+id/action_exit"
-        android:title="@string/action_exit"
+    <item
+        android:id="@+id/action_exit"
+        android:icon="@android:drawable/ic_lock_power_off"
         android:orderInCategory="2"
-        app:showAsAction="never"
-        android:icon="@mipmap/ic_launcher"/>
+        app:showAsAction="never" />
 
 </menu>

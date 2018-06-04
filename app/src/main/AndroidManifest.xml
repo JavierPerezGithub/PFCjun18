@@ -6,11 +6,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher_web"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher_web"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,14 +20,20 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".logicPeople.PeopleActivity" />
-        <activity android:name=".logicPeople.ContPeople" />
-        <activity android:name=".logicPeople.PeopleFinalActivity" />
+        <activity android:name=".logicPeople.ContPeople"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        </activity>
+        <activity android:name=".logicPeople.PeopleFinalActivity"/>
         <activity android:name=".logicPlanets.PlanetsActivity" />
-        <activity android:name=".logicPlanets.ContPlanet" />
+        <activity android:name=".logicPlanets.ContPlanet"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        </activity>
         <activity android:name=".logicPlanets.PlanetFinalActivity" />
         <activity android:name=".logicStarShips.StarshipActivity" />
-        <activity android:name=".logicStarShips.ContStarship" />
-        <activity android:name=".logicStarShips.StarshipFinalActivity"></activity>
+        <activity android:name=".logicStarShips.ContStarship"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        </activity>
+        <activity android:name=".logicStarShips.StarshipFinalActivity"/>
     </application>
 
 </manifest>

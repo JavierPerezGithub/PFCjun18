@@ -2,15 +2,14 @@ package com.javier.starapiwars.logicPeople;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.javier.starapiwars.R;
 import com.javier.starapiwars.models.People;
-
+import com.javier.starapiwars.R;
 import java.util.ArrayList;
 
 /**
@@ -39,8 +38,7 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
 
     @Override
     public void onBindViewHolder(MiViewHolder holder, int position) {
-
-        holder.nombre.setText(datos.get(position).getName());
+        holder.nombre.setText(datos.get(position).getName().toLowerCase());
     }
 
     @Override
@@ -64,6 +62,7 @@ public class AdapterPeople extends RecyclerView.Adapter<AdapterPeople.MiViewHold
         public MiViewHolder(View view) {
             super(view);
             nombre = view.findViewById(R.id.tvItemNomPeople);
+            nombre.setTypeface(Typeface.createFromAsset(view.getContext().getAssets(), "fonts/starjout.ttf"));
         }
     }public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;

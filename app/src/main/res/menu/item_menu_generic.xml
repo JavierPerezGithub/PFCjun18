@@ -2,8 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_exit"
-        android:title="@string/action_exit"
+    <item
+        android:id="@+id/action_exit"
+        android:icon="@android:drawable/ic_lock_power_off"
         android:orderInCategory="1"
-        app:showAsAction="always"/>
+        android:title="@string/action_exit"
+        app:showAsAction="always" />
 </menu>

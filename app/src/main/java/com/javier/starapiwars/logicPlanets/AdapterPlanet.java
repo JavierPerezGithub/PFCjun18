@@ -1,6 +1,7 @@
 package com.javier.starapiwars.logicPlanets;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,6 +60,7 @@ public class AdapterPlanet extends RecyclerView.Adapter<AdapterPlanet.MiViewHold
         public MiViewHolder(View view) {
             super(view);
             nombre = view.findViewById(R.id.tvItemNomPeople);
+            nombre.setTypeface(Typeface.createFromAsset(view.getContext().getAssets(), "fonts/starjout.ttf"));
         }
     }public void setOnClickListener(View.OnClickListener listener) {
         this.listener = listener;

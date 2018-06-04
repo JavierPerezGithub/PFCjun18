@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/StarApiWars.iml" filepath="$PROJECT_DIR$/StarApiWars.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pfcjun18-jjpd.iml" filepath="$PROJECT_DIR$/pfcjun18-jjpd.iml" />
     </modules>
   </component>
 </project>
