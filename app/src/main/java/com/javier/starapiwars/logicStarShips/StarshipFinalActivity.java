@@ -25,7 +25,7 @@ public class StarshipFinalActivity extends AppCompatActivity {
     private ImageView imageView;
     private TextView tvNombre, tvModel, tvManufacturer, tvCost, tvLength, tvAthmosphere, tvCrew;
     private TextView tvPassengers, tvCargoCap, tvConsumables, tvHyperDrive, tvMglt, tvStClass
-            , text,text1,text2,text3,text4,text5,text6,text7,text8,text9,text10;
+            , text,text1,text2,text3,text4,text5,text6,text7,text8,text9;
     private Starship starship;
 
     @Override
