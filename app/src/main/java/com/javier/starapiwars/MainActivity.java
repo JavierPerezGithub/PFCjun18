@@ -18,58 +18,62 @@ public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer mp;
     private ImageView img;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mp = MediaPlayer.create(this,R.raw.on);
+        mp = MediaPlayer.create(this, R.raw.on);
         img = findViewById(R.id.imageView2);
     }
+
     public void acPeople(View view) {
-        mp = MediaPlayer.create(this,R.raw.on);
+        mp = MediaPlayer.create(this, R.raw.on);
         mp.start();
-        startActivity(new Intent(this,PeopleActivity.class));
+        startActivity(new Intent(this, PeopleActivity.class));
     }
 
     public void acPlanets(View view) {
-        mp = MediaPlayer.create(this,R.raw.on);
+        mp = MediaPlayer.create(this, R.raw.chewy);
         mp.start();
-        startActivity(new Intent(this,PlanetsActivity.class));
+        startActivity(new Intent(this, PlanetsActivity.class));
     }
 
     public void acStarships(View view) {
-        mp = MediaPlayer.create(this,R.raw.on);
+        mp = MediaPlayer.create(this, R.raw.tie);
         mp.start();
-        startActivity(new Intent(this,StarshipActivity.class));
+        startActivity(new Intent(this, StarshipActivity.class));
     }
 
     @Override
-    public void onBackPressed() {}
+    public void onBackPressed() {
+    }
+
     public void twitter(View view) {
-        Uri uri = Uri.parse (getString(R.string.refTwitter));
+        Uri uri = Uri.parse(getString(R.string.refTwitter));
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
+
     public void facebook(View view) {
         String facebookId = getString(R.string.refFbApp);
         String facebookWeb = getString(R.string.refFbWeb);
 
-    try{
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId )));
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookId)));
+        } catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookWeb)));
+        }
     }
-    catch(Exception e)
-    {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookWeb )));
-    }
-    }
+
     public void official(View view) {
-        Uri uri = Uri.parse (getString(R.string.refOfWeb));
+        Uri uri = Uri.parse(getString(R.string.refOfWeb));
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
 
     public void musica(View view) {
-        mp = MediaPlayer.create(this,R.raw.breath);
+        mp = MediaPlayer.create(this, R.raw.breath);
         mp.start();
     }
 }

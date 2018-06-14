@@ -20,10 +20,10 @@ private MediaPlayer mp;
         setContentView(R.layout.activity_people);
         text = findViewById(R.id.textView);
         text.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/starjout.ttf"));
-        mp = MediaPlayer.create(this,R.raw.on);
 
     }
     public void contPeople(View view) {
+        mp = MediaPlayer.create(this,R.raw.vader);
         mp.start();
         startActivity(new Intent(this,ContPeople.class));
     }

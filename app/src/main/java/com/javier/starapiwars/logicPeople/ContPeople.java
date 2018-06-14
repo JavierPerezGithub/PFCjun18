@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -70,7 +71,7 @@ public class ContPeople extends AppCompatActivity {
         etBusqueda = findViewById(R.id.etBusquedaP);
         spinner = findViewById(R.id.spFiltroP);
         String[] contenido = {"Name", "Homeworld"};
-        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, contenido));
+        spinner.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, contenido));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -99,15 +100,15 @@ public class ContPeople extends AppCompatActivity {
                     if (busqueda == null) {
                         busqueda = new ArrayList<>();
                     }
-                    if (busqueda.size() != 0 || busqueda != null) {
+                    if (busqueda.size() != 0) {
                         busqueda.removeAll(busqueda);
                     }
 
                     switch (opcion) {
 
                         case 0:
-                            String name = "";
-                            String sSubPeople = "";
+                            String name;
+                            String sSubPeople;
                             int tamDato = dato.length();
                             busqueda.removeAll(busqueda);
 
@@ -119,7 +120,7 @@ public class ContPeople extends AppCompatActivity {
                                         busqueda.add(list.get(i));
                                     }
                                 } catch (StringIndexOutOfBoundsException e) {
-
+                                    e.printStackTrace();
                                 }
 
                             }
@@ -133,8 +134,8 @@ public class ContPeople extends AppCompatActivity {
                             break;
 
                         case 1:
-                            String planet = "";
-                            String sSubPlanet = "";
+                            String planet;
+                            String sSubPlanet;
                             int tDato = dato.length();
                             busqueda.removeAll(busqueda);
                             for (int i = 0; i < list.size(); i++) {
@@ -146,7 +147,7 @@ public class ContPeople extends AppCompatActivity {
                                         busqueda.add(list.get(i));
                                     }
                                 } catch (StringIndexOutOfBoundsException e) {
-
+                                    e.printStackTrace();
                                 }
 
                             }
@@ -181,7 +182,6 @@ public class ContPeople extends AppCompatActivity {
             public void onClick(View v) {
 
                 AdapterPeople.MiViewHolder adapter = (AdapterPeople.MiViewHolder) rv.getChildViewHolder(v);
-                adapter.getNombre();
                 People people = list.get(rv.getChildAdapterPosition(v));
                 Intent intent = new Intent(ContPeople.this, PeopleFinalActivity.class);
                 intent.putExtra("object", people);
@@ -203,7 +203,7 @@ public class ContPeople extends AppCompatActivity {
                 spinner.setVisibility(View.VISIBLE);
                 etBusqueda.setVisibility(View.VISIBLE);
                 btnBusqueda.setVisibility(View.VISIBLE);
-            } else{
+            } else {
                 spinner.setVisibility(View.GONE);
                 etBusqueda.setVisibility(View.GONE);
                 btnBusqueda.setVisibility(View.GONE);
@@ -220,6 +220,7 @@ public class ContPeople extends AppCompatActivity {
     }
 
     private Dialog crearDialogo() {
+        MediaPlayer.create(this, R.raw.fear).start();
         AlertDialog.Builder builder = new AlertDialog.Builder(ContPeople.this);
         builder.setCancelable(false);
         builder.setMessage("DO YOU WANT TO EXIT?");
@@ -242,6 +243,7 @@ public class ContPeople extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        MediaPlayer.create(this, R.raw.off).start();
         startActivity(new Intent(ContPeople.this, MainActivity.class));
     }
 }

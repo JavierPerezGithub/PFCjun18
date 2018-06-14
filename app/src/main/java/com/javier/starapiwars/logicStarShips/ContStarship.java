@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -69,7 +70,7 @@ public class ContStarship extends AppCompatActivity {
         etBusqueda = findViewById(R.id.etBusquedaSt);
         spinner = findViewById(R.id.spFiltroSt);
         String[] contenido = {"Name"};
-        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, contenido));
+        spinner.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, contenido));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -94,15 +95,15 @@ public class ContStarship extends AppCompatActivity {
                     if (busqueda == null) {
                         busqueda = new ArrayList<>();
                     }
-                    if (busqueda.size() != 0 || busqueda != null) {
+                    if (busqueda.size() != 0) {
                         busqueda.removeAll(busqueda);
                     }
 
                     switch (opcion) {
 
                         case 0:
-                            String name = "";
-                            String sSubPlanet = "";
+                            String name;
+                            String sSubPlanet;
                             int tamDato = dato.length();
                             busqueda.removeAll(busqueda);
 
@@ -114,9 +115,8 @@ public class ContStarship extends AppCompatActivity {
                                         busqueda.add(list.get(i));
                                     }
                                 } catch (StringIndexOutOfBoundsException e) {
-
+                                    e.printStackTrace();
                                 }
-
                             }
                             if (busqueda.size() == 0) {
                                 Toast.makeText(ContStarship.this, "Planet not found", Toast.LENGTH_LONG).show();
@@ -127,8 +127,8 @@ public class ContStarship extends AppCompatActivity {
                             }
                             break;
                     }
-                }else{
-                    Toast.makeText(ContStarship.this,"the field cannot be left empty",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ContStarship.this, "the field cannot be left empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -149,7 +149,6 @@ public class ContStarship extends AppCompatActivity {
             public void onClick(View v) {
 
                 AdapterStarship.MiViewHolder adapter = (AdapterStarship.MiViewHolder) rv.getChildViewHolder(v);
-                adapter.getNombre();
                 Starship starship = list.get(rv.getChildAdapterPosition(v));
                 Intent intent = new Intent(ContStarship.this, StarshipFinalActivity.class);
                 intent.putExtra("object", starship);
@@ -171,7 +170,7 @@ public class ContStarship extends AppCompatActivity {
                 spinner.setVisibility(View.VISIBLE);
                 etBusqueda.setVisibility(View.VISIBLE);
                 btnBusqueda.setVisibility(View.VISIBLE);
-            } else{
+            } else {
                 spinner.setVisibility(View.GONE);
                 etBusqueda.setVisibility(View.GONE);
                 btnBusqueda.setVisibility(View.GONE);
@@ -188,6 +187,7 @@ public class ContStarship extends AppCompatActivity {
     }
 
     private Dialog crearDialogo() {
+        MediaPlayer.create(this, R.raw.fear).start();
         AlertDialog.Builder builder = new AlertDialog.Builder(ContStarship.this);
         builder.setCancelable(false);
         builder.setMessage("DO YOU WANT TO EXIT?");
@@ -211,6 +211,7 @@ public class ContStarship extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        MediaPlayer.create(this, R.raw.xwing).start();
         Intent intent = new Intent(ContStarship.this, MainActivity.class);
         startActivity(intent);
     }

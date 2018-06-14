@@ -21,17 +21,18 @@ public class PlanetsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_planets);
         text = findViewById(R.id.textView);
         text.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/starjout.ttf"));
-        mp = MediaPlayer.create(this,R.raw.on);
+        mp = MediaPlayer.create(this, R.raw.ewok);
 
     }
+
     public void contPlanet(View view) {
         mp.start();
-        startActivity(new Intent(this,ContPlanet.class));
+        startActivity(new Intent(this, ContPlanet.class));
     }
 
     @Override
     public void onBackPressed() {
-        mp = MediaPlayer.create(this,R.raw.off);
+        mp = MediaPlayer.create(this, R.raw.off);
         mp.start();
         Intent intent = new Intent(PlanetsActivity.this, MainActivity.class);
         startActivity(intent);

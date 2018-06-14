@@ -21,19 +21,21 @@ public class StarshipActivity extends AppCompatActivity {
         setContentView(R.layout.activity_starship);
         text = findViewById(R.id.textView);
         text.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/starjout.ttf"));
-        mp = MediaPlayer.create(this,R.raw.on);
+        mp = MediaPlayer.create(this, R.raw.on);
     }
-        public void contStarship(View view) {
 
-            mp = MediaPlayer.create(this,R.raw.on);
-            startActivity(new Intent(this,ContStarship.class));
-        }
+    public void contStarship(View view) {
 
-        @Override
-        public void onBackPressed() {
-            mp = MediaPlayer.create(this,R.raw.off);
-            mp.start();
-            Intent intent = new Intent(StarshipActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
+        startActivity(new Intent(this, ContStarship.class));
+        mp = MediaPlayer.create(this, R.raw.tiefire);
+        mp.start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        mp = MediaPlayer.create(this, R.raw.xwing);
+        mp.start();
+        Intent intent = new Intent(StarshipActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

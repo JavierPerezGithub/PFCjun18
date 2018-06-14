@@ -11,29 +11,29 @@
         android:roundIcon="@drawable/ic_launcher_web"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".logicPeople.PeopleActivity" />
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" />
+        <activity android:name=".logicPeople.PeopleActivity" android:screenOrientation="portrait"/>
         <activity android:name=".logicPeople.ContPeople"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         </activity>
-        <activity android:name=".logicPeople.PeopleFinalActivity"/>
-        <activity android:name=".logicPlanets.PlanetsActivity" />
+        <activity android:name=".logicPeople.PeopleFinalActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".logicPlanets.PlanetsActivity" android:screenOrientation="portrait" />
         <activity android:name=".logicPlanets.ContPlanet"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         </activity>
-        <activity android:name=".logicPlanets.PlanetFinalActivity" />
-        <activity android:name=".logicStarShips.StarshipActivity" />
-        <activity android:name=".logicStarShips.ContStarship"
+        <activity android:name=".logicPlanets.PlanetFinalActivity" android:screenOrientation="portrait" />
+        <activity android:name=".logicStarShips.StarshipActivity" android:screenOrientation="portrait" />
+        <activity android:name=".logicStarShips.ContStarship" android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         </activity>
-        <activity android:name=".logicStarShips.StarshipFinalActivity"/>
+        <activity android:name=".logicStarShips.StarshipFinalActivity" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
